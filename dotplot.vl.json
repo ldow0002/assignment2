@@ -1,6 +1,6 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
-  "title": "IMDB Rating vs Rotten Tomatoes Rating",
+  "title": "IMDb Rating vs Rotten Tomatoes Rating",
   "width": 800,
   "height": 600,
   "data": {
@@ -40,7 +40,7 @@
     "x": {
       "field": "newIM",
       "type": "quantitative",
-      "title": "IMDB Rating",
+      "title": "IMDb Rating",
       "axis": {"tickCount": 10},
       "scale": {"domain": [1, 100]}
     },
