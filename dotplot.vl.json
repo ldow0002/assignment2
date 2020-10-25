@@ -1,0 +1,120 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+  "title": "IMDB Rating vs Rotten Tomatoes Rating",
+  "width": 800,
+  "height": 600,
+  "data": {
+    "url": "https://raw.githubusercontent.com/ldow0002/assignment2/main/MoviesOnStreamingPlatforms_updated.csv"
+  },
+  "params": [
+    {
+      "name": "Year_Above",
+      "value": 1940,
+      "bind": {
+        "input": "range",
+        "min": 1940,
+        "max": 2020,
+        "step": 10,
+        "name": "Minimum Production Year: "
+      }
+    },
+    {
+      "name": "Runtime_Above",
+      "value": 100,
+      "bind": {
+        "input": "range",
+        "min": 0,
+        "max": 400,
+        "step": 100,
+        "name": "Minimum Runtime: "
+      }
+    }
+  ],
+  "transform": [
+    {"calculate": "datum.rt_rate*100", "as": "newRT"},
+    {"calculate": "datum.IMDb*10", "as": "newIM"},
+    {"filter": "datum.Year > Year_Above"},
+    {"filter": "datum.Runtime > Runtime_Above"}
+  ],
+  "encoding": {
+    "x": {
+      "field": "newIM",
+      "type": "quantitative",
+      "title": "IMDB Rating",
+      "axis": {"tickCount": 10},
+      "scale": {"domain": [1, 100]}
+    },
+    "y": {
+      "field": "newRT",
+      "type": "quantitative",
+      "title": "Rotten Tomatoes Rating",
+      "axis": {"tickCount": 10},
+      "scale": {"domain": [1, 100]}
+    }
+  },
+  "layer": [
+    {
+      "mark": "circle",
+      "encoding": {
+        "size": {
+          "field": "Runtime",
+          "type": "quantitative",
+          "scale": {
+            "type": "threshold",
+            "domain": [120, 200, 300, 400],
+            "range": [10, 50, 150, 200, 300, 400]
+          }
+        },
+        "color": {"value": "#DB2B39"},
+        "tooltip": [
+          {"field": "Title", "type": "nominal"},
+          {"field": "Netflix", "type": "quantitative"},
+          {"field": "Hulu", "type": "quantitative"},
+          {"field": "Disney+", "type": "quantitative"},
+          {"field": "Prime Video", "type": "quantitative"},
+          {"field": "newIM", "type": "quantitative", "title": "IMDb Rating"},
+          {
+            "field": "newRT",
+            "type": "quantitative",
+            "title": "Rotten Tomatoes Rating"
+          }
+        ]
+      }
+    },
+    {
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "baseline": "middle",
+        "dx": 8,
+        "fontSize": 11.5,
+        "fontStyle": "italic"
+      },
+      "encoding": {
+        "text": {"field": "Title", "type": "nominal"},
+        "color": {"value": "black"},
+        "opacity": {
+          "condition": {
+            "test": "datum['Title'] == 'Inception' || datum['Title']=='The Dark Knight' || datum['Title']=='The Green Mile' || datum['Title']=='Back to the Future Part II'|| datum['Title']=='Avengers: Infinity War'",
+            "value": 1
+          },
+          "value": 0
+        },
+        "tooltip": [
+          {"field": "Title", "type": "nominal"},
+          {"field": "Netflix", "type": "quantitative"},
+          {"field": "Hulu", "type": "quantitative"},
+          {"field": "Disney+", "type": "quantitative"},
+          {"field": "Prime Video", "type": "quantitative", "format": ","},
+          {"field": "newIM", "type": "quantitative", "title": "IMDb Rating"},
+          {
+            "field": "newRT",
+            "type": "quantitative",
+            "title": "Rotten Tomatoes Rating"
+          }
+        ]
+      }
+    }
+  ],
+  "config": {}
+}
