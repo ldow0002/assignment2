@@ -12,8 +12,8 @@
       "value": 1940,
       "bind": {
         "input": "range",
-        "min": 1940,
-        "max": 2020,
+        "min": 1939,
+        "max": 2019,
         "step": 10,
         "name": "Minimum Production Year: "
       }
