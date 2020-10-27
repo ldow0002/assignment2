@@ -1,0 +1,30 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+  "width": 200,
+  "height": {"step": 16},
+  "data": {
+    "url": "https://raw.githubusercontent.com/ldow0002/assignment2/main/MoviesOnStreamingPlatforms_updated2.csv"
+  },
+  "encoding": {"y": {"field": "MainGenre", "type": "nominal", "axis": null}},
+  "layer": [
+    {
+      "mark": {"type": "bar", "color": "#DDF0FF"},
+      "encoding": {
+        "x": {
+          "aggregate": "mean",
+          "field": "IMDb",
+          "scale": {"domain": [0, 10]},
+          "title": "Mean IMDB Ratings"
+        }
+      }
+    },
+    {
+      "mark": {"type": "text", "align": "left", "x": 5},
+      "encoding": {
+        "text": {"field": "MainGenre"},
+        "detail": {"aggregate": "count"}
+      }
+    }
+  ],
+  "config": {}
+}
