@@ -1,6 +1,6 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
-  "width": 300,
+  "width": 500,
   "height": {"step": 16},
   "data": {
     "url": "https://raw.githubusercontent.com/ldow0002/assignment2/main/MoviesOnStreamingPlatforms_updated2.csv"
