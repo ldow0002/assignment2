@@ -1,0 +1,25 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+  "data": {
+    "url": "https://raw.githubusercontent.com/ldow0002/assignment2/main/netflix_titles.csv"
+  },
+  "mark": "bar",
+  "encoding": {
+    "x": {"field": "rating", "type": "ordinal", "title": "Rating"},
+    "y": {
+      "aggregate": "count",
+      "type": "quantitative",
+      "title": "Count of TV Shows and Movies"
+    },
+    "color": {
+      "field": "type",
+      "type": "nominal",
+      "scale": {
+        "domain": ["Movie", "TV Show"],
+        "range": ["#BB342F", "#EF6351"]
+      },
+      "title": "TV Show or Movie"
+    }
+  },
+  "config": {}
+}
