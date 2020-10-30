@@ -1,5 +1,6 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+  "height": {"step": 16},
   "data": {
     "url": "https://raw.githubusercontent.com/ldow0002/assignment2/main/netflix_titles.csv"
   },
