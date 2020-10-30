@@ -27,7 +27,6 @@
   "encoding": {
     "color": {
       "field": "Movies Produced per 100,000 population",
-      "title": "Number of Movies",
       "type": "quantitative",
       "scale": {
         "type": "threshold",
