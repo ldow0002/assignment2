@@ -37,7 +37,7 @@
   "vconcat": [
     {
       "width": 800,
-      "height": 200,
+      "height": 100,
       "mark": "bar",
       "encoding": {
         "x": {"field": "newRT", "title": null, "type": "quantitative"},
@@ -45,7 +45,7 @@
           "aggregate": "count",
           "field": "newRT",
           "scale": {"domain": [1, 160]},
-          "title": "Number of Rotten Tomato Ratings"
+          "title": "Number of Ratings"
         }
       }
     },
