@@ -1,0 +1,146 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+  "data": {
+    "url": "https://raw.githubusercontent.com/ldow0002/assignment2/main/MoviesOnStreamingPlatforms_updated.csv"
+  },
+  "params": [
+    {
+      "name": "Year_Above",
+      "value": 1940,
+      "bind": {
+        "input": "range",
+        "min": 1939,
+        "max": 2019,
+        "step": 10,
+        "name": "Minimum Production Year: "
+      }
+    },
+    {
+      "name": "Runtime_Above",
+      "value": 100,
+      "bind": {
+        "input": "range",
+        "min": 0,
+        "max": 400,
+        "step": 100,
+        "name": "Minimum Runtime: "
+      }
+    }
+  ],
+  "transform": [
+    {"calculate": "datum.rt_rate*100", "as": "newRT"},
+    {"calculate": "datum.IMDb*10", "as": "newIM"},
+    {"filter": "datum.Year > Year_Above"},
+    {"filter": "datum.Runtime > Runtime_Above"},
+    {"filter": {"field": "newRT", "range": [2, 99]}}
+  ],
+  "vconcat": [
+    {
+      "width": 800,
+      "height": 200,
+      "mark": "bar",
+      "encoding": {
+        "x": {"field": "newRT", "title": null, "type": "quantitative"},
+        "y": {
+          "aggregate": "count",
+          "field": "newRT",
+          "scale": {"domain": [1, 160]},
+          "title": "Number of Rotten Tomato Ratings"
+        }
+      }
+    },
+    {
+      "width": 800,
+      "height": 600,
+      "encoding": {
+        "y": {
+          "field": "newIM",
+          "type": "quantitative",
+          "title": "IMDb Rating",
+          "axis": {"tickCount": 10},
+          "scale": {"domain": [1, 100]}
+        },
+        "x": {
+          "field": "newRT",
+          "type": "quantitative",
+          "title": "Rotten Tomatoes Rating",
+          "axis": {"tickCount": 10},
+          "scale": {"domain": [1, 100]}
+        }
+      },
+      "layer": [
+        {
+          "mark": "circle",
+          "encoding": {
+            "size": {
+              "field": "Runtime",
+              "type": "quantitative",
+              "scale": {
+                "type": "threshold",
+                "domain": [120, 200, 300, 400],
+                "range": [10, 50, 150, 200, 300, 400]
+              }
+            },
+            "color": {"value": "#DB2B39"},
+            "tooltip": [
+              {"field": "Title", "type": "nominal"},
+              {"field": "Netflix", "type": "quantitative"},
+              {"field": "Hulu", "type": "quantitative"},
+              {"field": "Disney+", "type": "quantitative"},
+              {"field": "Prime Video", "type": "quantitative"},
+              {
+                "field": "newIM",
+                "type": "quantitative",
+                "title": "IMDb Rating"
+              },
+              {
+                "field": "newRT",
+                "type": "quantitative",
+                "title": "Rotten Tomatoes Rating"
+              }
+            ]
+          }
+        },
+        {
+          "mark": {
+            "type": "text",
+            "align": "right",
+            "baseline": "middle",
+            "dx": -8,
+            "fontSize": 11.5,
+            "fontStyle": "italic"
+          },
+          "encoding": {
+            "text": {"field": "Title", "type": "nominal"},
+            "color": {"value": "black"},
+            "opacity": {
+              "condition": {
+                "test": "datum['Title'] == 'Inception' || datum['Title']=='The Dark Knight' || datum['Title']=='Hearing Is Believing' || datum['Title']=='High School Musical 2'|| datum['Title']=='Home Alone 3'",
+                "value": 1
+              },
+              "value": 0
+            },
+            "tooltip": [
+              {"field": "Title", "type": "nominal"},
+              {"field": "Netflix", "type": "quantitative"},
+              {"field": "Hulu", "type": "quantitative"},
+              {"field": "Disney+", "type": "quantitative"},
+              {"field": "Prime Video", "type": "quantitative", "format": ","},
+              {
+                "field": "newIM",
+                "type": "quantitative",
+                "title": "IMDb Rating"
+              },
+              {
+                "field": "newRT",
+                "type": "quantitative",
+                "title": "Rotten Tomatoes Rating"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "config": {}
+}
