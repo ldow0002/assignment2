@@ -8,7 +8,7 @@
   "encoding": {"y": {"field": "MainGenre", "type": "nominal", "axis": null}},
   "layer": [
     {
-      "mark": {"type": "bar", "color": "#DDF0FF"},
+      "mark": {"type": "bar", "color": "#ffcdcd"},
       "encoding": {
         "x": {
           "aggregate": "mean",
