@@ -8,7 +8,7 @@
   "encoding": {"y": {"field": "MainGenre", "type": "nominal", "axis": null}},
   "layer": [
     {
-      "mark": {"type": "bar", "color": "#ffcdcd"},
+      "mark": {"type": "bar", "color": "#e07070"},
       "encoding": {
         "x": {
           "aggregate": "mean",
@@ -19,12 +19,15 @@
       }
     },
     {
-      "mark": {"type": "text", "align": "left", "x": 5},
+      "mark": {"type": "text", "align": "left", "x": 5, "color": "#ffff"},
       "encoding": {
         "text": {"field": "MainGenre"},
         "detail": {"aggregate": "count"}
       }
     }
   ],
-  "config": {}
+  "config": {"view": {
+     "stroke": "transparent"
+  }
+  }
 }
