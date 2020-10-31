@@ -22,5 +22,8 @@
       "title": "TV Show or Movie"
     }
   },
-  "config": {}
+  "config": {"view": {
+     "stroke": "transparent"
+  }
+  }
 }
