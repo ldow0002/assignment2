@@ -32,7 +32,7 @@
       "scale": {
         "type": "threshold",
         "domain": [0.1, 2, 4, 6],
-        "range": ["#FCBCB8", "#e5383b", "#a4161a", "#660708", "#0b090a"]
+        "range": ["#FF5A5F", "#e5383b", "#a4161a", "#660708", "#0b090a"]
       }
     },
     "tooltip": [
