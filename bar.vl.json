@@ -14,7 +14,7 @@
           "aggregate": "mean",
           "field": "IMDb",
           "scale": {"domain": [0, 10]},
-          "title": "Mean IMDB Ratings"
+          "title": "Average IMDb Ratings"
         },
         "tooltip": [
               {"field": "Genres", "type": "nominal"},
