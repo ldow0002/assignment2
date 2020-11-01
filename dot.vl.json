@@ -37,7 +37,7 @@
   "vconcat": [
     {
       "width": 800,
-      "height": 100,
+      "height": 150,
       "mark": "bar",
       "encoding": {
         "color": {"value": "#DB2B39"},
@@ -46,7 +46,7 @@
           "aggregate": "count",
           "field": "newRT",
           "scale": {"domain": [1, 160]},
-          "title": "Number of Ratings"
+          "title": "Rotten Tomatoes Ratings Count"
         }
       }
     },
