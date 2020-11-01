@@ -6,7 +6,7 @@
   },
   "mark": "bar",
   "encoding": {
-    "x": {"field": "rating", "type": "ordinal", "title": "Rating"},
+    "x": {"field": "rating", "type": "ordinal", "title": "Movie Classification"},
     "y": {
       "aggregate": "count",
       "type": "quantitative",
