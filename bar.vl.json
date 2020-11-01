@@ -15,11 +15,7 @@
           "field": "IMDb",
           "scale": {"domain": [0, 10]},
           "title": "Average IMDb Ratings"
-        },
-        "tooltip": [
-              {"field": "Genres", "type": "nominal"},
-              {"field": "IMDb", "type": "nominal"}
-            ]
+        }
       }
     },
     {
