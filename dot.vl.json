@@ -21,8 +21,8 @@
       "bind": {
         "input": "range",
         "min": 0,
-        "max": 400,
-        "step": 100,
+        "max": 200,
+        "step": 50,
         "name": "Minimum Runtime: "
       }
     }
@@ -126,6 +126,7 @@
             },
             "tooltip": [
               {"field": "Title", "type": "nominal"},
+              {"field": "Runtime", "type": "quantitative"},
               {"field": "Netflix", "type": "quantitative"},
               {"field": "Hulu", "type": "quantitative"},
               {"field": "Disney+", "type": "quantitative"},
