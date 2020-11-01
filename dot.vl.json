@@ -47,10 +47,7 @@
           "field": "newRT",
           "scale": {"domain": [1, 160]},
           "title": "Number of Ratings"
-        },
-        "tooltip": [
-          {"field": "newRT", "type": "nominal", "title": "Number of Ratings"}
-        ]
+        }
       }
     },
     {
