@@ -3,6 +3,22 @@
   "width": 800,
   "height": 350,
   "projection": {"type": "equalEarth"},
+  "layer": [
+    {
+      "data": {
+        "url": "https://raw.githubusercontent.com/ldow0002/assignment2/main/custom.geo_topo.json",
+        "format": {
+          "type": "topojson", "feature": "custom"
+        }
+      },
+      "projection": { "type":"equalEarth"},
+      "mark": {
+        "type": "geoshape",
+        "fill": "#ededed",
+        "stroke": "white"
+      }
+    },
+    {
   "data": {
     "url": "https://raw.githubusercontent.com/ldow0002/assignment2/main/custom.geo_topo.json",
     "format": {"type": "topojson", "feature": "custom"}
@@ -43,7 +59,7 @@
         "type": "quantitative"
       }
     ]
-  },
+  }}],
  "config": {"view": {
      "stroke": "transparent"
   }
